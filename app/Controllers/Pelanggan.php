@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Model\PelangganModel;
+use App\Models\PelangganModel;
 class Pelanggan extends BaseController
 {
     public function index()
@@ -25,9 +25,9 @@ class Pelanggan extends BaseController
 
     public function getPelangganDataJson()
     {
-        $pelangganModel = new pelangganModel();
+        $pelangganModel = new PelangganModel();
 
-        $pelanggans = $pelangganModel->getPelangganData();
+        $pelanggans = $pelangganModel->getPelanggan();
 
         return $this->response->setJSON($pelanggans);
     }
