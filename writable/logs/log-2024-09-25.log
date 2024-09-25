@@ -1,0 +1,184 @@
+CRITICAL - 2024-09-25 13:11:42 --> Error: Class "App\Models\TransaksiModel" not found
+[Method: GET, Route: transaksi/data]
+in APPPATH\Controllers\Transaksi.php on line 38.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\transaksi->gettransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\transaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 13:15:25 --> Error: Class "App\Models\TransaksiModel" not found
+[Method: GET, Route: transaksi/data]
+in APPPATH\Controllers\Transaksi.php on line 38.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\transaksi->gettransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\transaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 13:16:37 --> ErrorException: Undefined variable $TransaksiModel
+[Method: GET, Route: transaksi/data]
+in APPPATH\Controllers\Transaksi.php on line 41.
+ 1 APPPATH\Controllers\Transaksi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $TransaksiModel', 'C:\\xampp\\htdocs\\server-webservice\\app\\Controllers\\Transaksi.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\transaksi->gettransaksi()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\transaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 13:54:26 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 13:54:28 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 13:54:29 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 13:54:29 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 13:54:30 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 13:54:57 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 13:55:15 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 46.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:08:51 --> BadMethodCallException: Call to undefined method App\Models\TransaksiModel::getTransaksi
+[Method: GET, Route: transaksi/data]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Transaksi.php(41): CodeIgniter\Model->__call('getTransaksi', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Transaksi->getTransaksi()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:27:09 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:37:07 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:38:55 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:38:56 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:38:56 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:38:56 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:38:57 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-25 14:47:37 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:49:14 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:49:14 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:49:15 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:49:15 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:50:32 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:50:34 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:50:35 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:50:35 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:50:35 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-09-25 14:50:35 --> ErrorException: Declaration of App\Models\TransaksiModel::delete($id) must be compatible with CodeIgniter\BaseModel::delete($id = null, bool $purge = false)
+[Method: GET, Route: transaksi/data]
+in APPPATH\Models\TransaksiModel.php on line 30.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
