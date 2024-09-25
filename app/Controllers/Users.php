@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\BukuModel;
+use App\Models\UserModel;
 
 class Users extends BaseController
 {

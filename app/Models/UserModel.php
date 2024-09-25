@@ -11,7 +11,7 @@ class UserModel extends Model
     protected $allowedFields = ['nama', 'username', 'password', 'alamat', 'no_hp', 'role']; 
     
     // Methode untuk mengambil data admin
-    public function getusers($id)
+    public function getusers()
     {
         // Mengambil semua data dari tabel
         return $this->findAll();
