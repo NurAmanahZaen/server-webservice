@@ -23,22 +23,16 @@ class TransaksiModel extends Model
     {
         return $this->findAll(); // Mengambil semua data transaksi
     }
-
+    
     // Method untuk mengambil data transaksi berdasarkan id
     public function getTransaksiById($id)
     {
-        return $this->find($id); // Mengambil data transaksi berdasarkan ID
+        return $this->find($id); // Mengambil data transaksi berdasarkan id
+    }
+    public function store($data)
+    {
+        return $this->insert($data); // Menyimpan data transaksi
     }
 
-    // Method untuk menyimpan data baru atau memperbarui data yang sudah ada
-    public function saveTransaksi($data)
-    {
-        return $this->save($data); // Menggunakan method save() dari CodeIgniter Model
-    }
 
-    // Method untuk menghapus data transaksi berdasarkan id
-    public function deleteTransaksi($id)
-    {
-        return $this->delete($id); // Menggunakan method delete() dari CodeIgniter Model
-    }
 }

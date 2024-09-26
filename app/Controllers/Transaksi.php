@@ -7,6 +7,14 @@ use App\Controllers\BaseController;
 
 class Transaksi extends BaseController // Updated class name to Transaksi
 {
+    protected $transaksiModel;
+    
+    public function __construct()
+    {
+        // Inisialisasi model
+        $this->transaksiModel = new TransaksiModel();
+    }
+
     // Fungsi untuk menampilkan halaman index
     public function index()
     {
@@ -43,61 +51,107 @@ class Transaksi extends BaseController // Updated class name to Transaksi
         // Mengembalikan data dalam format JSON
         return $this->response->setJSON($transaksi);
     }
+    
 
     // Function untuk menyimpan data dengan output JSON
-    public function storeData()
-{
-    $transaksiModel = new TransaksiModel();
+    public function store()
+    {
+        // Ambil data JSON dari request
+        $input_data = $this->request->getJSON(true);
+        
+        if($input_data) {
+            $data = [
+                'id' => $input_data['id'] ?? null,
+                'kd_user' => $input_data['kd_user'] ?? null,
+                'no_invoice' => $input_data['no_invoice'] ?? null,
+                'tgl_mulai' => $input_data['tgl_mulai'] ?? null,
+                'tgl_kembali' => $input_data['tgl_kembali'] ?? null,
+                'status' => $input_data['status'] ?? null,
+                'keterangan' => $input_data['keterangan'] ?? null,
+            ];
 
-    // Mendapatkan data input dari request
-    $data = [
-        'no_invoice'   => $this->request->getPost('no_invoice'),
-        'kd_user'      => $this->request->getPost('kd_user'),
-        'kd_pelanggan' => $this->request->getPost('kd_pelanggan'),
-        'tgl_mulai'    => $this->request->getPost('tgl_mulai'),
-        'tgl_kembali'  => $this->request->getPost('tgl_kembali'),
-        'status'       => $this->request->getPost('status'),
-        'keterangan'   => $this->request->getPost('keterangan'),
-    ];
+            // Simpan data menggunakan insert atau save
+            if($this->transaksiModel->save($data)) {
+                // Jika berhasil disimpan, kembalikan respon sukses
+                return $this->respondCreated([
+                    'message' => 'Berhasil menyimpan data',
+                    'data' => $data
+                ])->setContentType('application/json');
+            } else {
+                // Jika gagal menyimpan data, kembalikan respon error
+                return $this->response->setStatusCode(500)->setJSON([
+                    'message' => 'Gagal menyimpan data',
+                ]);
+            }
+        }
 
-    if ($transaksiModel->saveTransaksi($data)) {
-        return $this->response->setJSON(['message' => 'Data berhasil disimpan', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal menyimpan data', 'status' => 0]);
+        // Jika input_data kosong
+        return $this->response->setStatusCode(400)->setJSON([
+            'message' => 'Data tidak valid atau tidak ditemukan',
+        ]);
     }
-}
-
-public function update($id)
-{
-    $transaksiModel = new TransaksiModel();
-
-    // Mendapatkan data input dari request
-    $data = [
-        'no_invoice'   => $this->request->getPost('no_invoice'),
-        'kd_user'      => $this->request->getPost('kd_user'),
-        'kd_pelanggan' => $this->request->getPost('kd_pelanggan'),
-        'tgl_mulai'    => $this->request->getPost('tgl_mulai'),
-        'tgl_kembali'  => $this->request->getPost('tgl_kembali'),
-        'status'       => $this->request->getPost('status'),
-        'keterangan'   => $this->request->getPost('keterangan'),
-    ];
-
-    if ($transaksiModel->saveTransaksi($data)) {
-        return $this->response->setJSON(['message' => 'Data berhasil diperbarui', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal memperbarui data', 'status' => 0]);
-    }
-}
-
-public function delete($id)
-{
-    $transaksiModel = new TransaksiModel();
-
-    if ($transaksiModel->deleteTransaksi($id)) {
-        return $this->response->setJSON(['message' => 'Data berhasil dihapus', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
-    }
-}
     
+    public function delete($id = null)
+    {
+        // Periksa apakah data dengan ID yang diberikan ada di database
+        $transaksi = $this->transaksiModel->find($id);
+
+        if ($transaksi) {
+            // Jika data ditemukan, lakukan penghapusan
+            if ($this->transaksiModel->deleteTransaksi($id)) {
+                return $this->response->setStatusCode(200)->setJSON([
+                    'message' => 'Data transaksi berhasil dihapus'
+                ]);
+            } else {
+                // Jika gagal menghapus data
+                return $this->response->setStatusCode(500)->setJSON([
+                    'message' => 'Gagal menghapus data transaksi'
+                ]);
+            }
+        } else {
+            // Jika data tidak ditemukan
+            return $this->response->setStatusCode(404)->setJSON([
+                'message' => 'Data transaksi tidak ditemukan'
+            ]);
+        }
+    }
+    public function update($id = null)
+    {
+        // Ambil data JSON dari request
+        $input_data = $this->request->getJSON(true);
+
+        // Cek apakah data transaksi dengan ID yang diberikan ada
+        $transaksi = $this->transaksiModel->find($id);
+
+        if ($transaksi) {
+            // Siapkan data yang akan diperbarui
+            $data = [
+                'id' => $input_data['id'] ?? $transaksi['id'],
+                'kd_user' => $input_data['kd_user'] ?? $transaksi['kd_user'],
+                'no_invoice' => $input_data['no_invoice'] ?? $transaksi['no_invoice'],
+                'tgl_mulai' => $input_data['tgl_mulai'] ?? $transaksi['tgl_mulai'],
+                'tgl_kembali' => $input_data['tgl_kembali'] ?? $transaksi['tgl_kembali'],
+                'status' => $input_data['status'] ?? $transaksi['status'],
+                'keterangan' => $input_data['keterangan'] ?? $transaksi['keterangan']
+            ];
+
+            // Lakukan update data
+            if ($this->transaksiModel->update($id, $data)) {
+                return $this->response->setStatusCode(200)->setJSON([
+                    'message' => 'Data transaksi berhasil diperbarui',
+                    'data' => $data
+                ]);
+            } else {
+                // Jika gagal memperbarui data
+                return $this->response->setStatusCode(500)->setJSON([
+                    'message' => 'Gagal memperbarui data transaksi'
+                ]);
+            }
+        } else {
+            // Jika data transaksi tidak ditemukan
+            return $this->response->setStatusCode(404)->setJSON([
+                'message' => 'Data transaksi tidak ditemukan'
+            ]);
+        }
+    }
 }
