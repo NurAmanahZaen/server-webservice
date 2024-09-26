@@ -23,13 +23,17 @@ class Pelanggan extends BaseController
         return $this->response->setJSON($data);
     }
 
-    public function getPelangganDataJson()
+    // Method untuk menampilkan data detail transaksi dalam bentuk JSON
+    public function getPelanggan() // Updated method name to camel case
     {
-        $pelangganModel = new PelangganModel();
+        // Memanggil model PelangganModel
+        $pelangganModel = new PelangganModel(); // Use consistent variable name
 
-        $pelanggans = $pelangganModel->getPelanggan();
+        // Mengambil data dari tabel transaksi
+        $pelanggan = $pelangganModel->getPelanggan(); // Ensure method name is correct
 
-        return $this->response->setJSON($pelanggans);
+        // Mengembalikan data dalam format JSON
+        return $this->response->setJSON($pelanggan);
     }
     
     public function storeData()
