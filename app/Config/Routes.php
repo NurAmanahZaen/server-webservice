@@ -29,6 +29,7 @@ $routes->get('/', 'Home::index');
 $routes->get('pelanggan', 'Pelanggan::index'); // Route untuk menampilkan halaman index
 $routes->get('/pelanggan/json', 'Pelanggan::showSimpleJson'); // Route untuk menampilkan JSON sederhana dari Pelanggan
 $routes->get('pelanggan/data', 'Pelanggan::getPelanggan'); // Route untuk mendapatkan detail transaksi dalam format JSON
+$routes->post('pelanggan/store', 'Pelanggan::storeData'); // Route untuk menyimpan data detail transaksi
 $routes->get('/pelanggan/data-pelanggan', 'Pelanggan::getPelangganDataJson'); // Route untuk mendapatkan data Pelanggan dalam format JSON
 
 // Rute untuk Barang
