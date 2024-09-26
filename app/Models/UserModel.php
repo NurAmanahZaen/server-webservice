@@ -17,7 +17,7 @@ class UserModel extends Model
         return $this->findAll();
     }
 
-    // Methode untuk mengambil data admin berdasarkan id
+    // Method untuk mengambil data admin berdasarkan id
     public function getdatausers($id)
     {
         // Mengambil data admin berdasarkan id
