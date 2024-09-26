@@ -15,12 +15,12 @@ $routes->post('users/update/(:num)', 'Users::update/$1'); // Route untuk mengupd
 $routes->delete('users/delete/(:num)', 'Users::delete/$1'); // Route untuk menghapus data users berdasarkan id
 
 // Rute untuk DetailTransaksi
-$routes->get('detail-transaksi', 'DetailTransaksi::index'); // Route untuk menampilkan halaman index
-$routes->get('detail-transaksi/simple-json', 'DetailTransaksi::showSimpleJson'); // Route untuk menampilkan data array dalam format JSON
-$routes->get('detail-transaksi/data', 'DetailTransaksi::getDetailTransaksi'); // Route untuk mendapatkan detail transaksi dalam format JSON
-$routes->post('detail-transaksi/store', 'DetailTransaksi::storeData'); // Route untuk menyimpan data detail transaksi
-$routes->post('detail-transaksi/update/(:num)', 'DetailTransaksi::update/$1'); // Route untuk mengupdate data berdasarkan id
-$routes->delete('detail-transaksi/delete/(:num)', 'DetailTransaksi::delete/$1'); // Route untuk menghapus data berdasarkan id
+$routes->get('detail-transaksi', 'DetailTransaksi::index'); 
+$routes->get('detail-transaksi/simple-json', 'DetailTransaksi::showSimpleJson');
+$routes->get('detail-transaksi/data', 'DetailTransaksi::getDetailTransaksi');
+$routes->post('detail-transaksi/store', 'DetailTransaksi::storeData'); 
+$routes->post('detail-transaksi/update/(:num)', 'DetailTransaksi::update/$1'); 
+$routes->delete('detail-transaksi/delete/(:num)', 'DetailTransaksi::delete/$1');
 
 // Rute untuk Home
 $routes->get('/', 'Home::index');
