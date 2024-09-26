@@ -26,7 +26,10 @@ $routes->delete('detail-transaksi/delete/(:num)', 'DetailTransaksi::delete/$1');
 $routes->get('/', 'Home::index');
 
 // Rute untuk Pelanggan
+$routes->get('pelanggan', 'Pelanggan::index'); // Route untuk menampilkan halaman index
 $routes->get('/pelanggan/json', 'Pelanggan::showSimpleJson'); // Route untuk menampilkan JSON sederhana dari Pelanggan
+$routes->get('pelanggan/data', 'Pelanggan::getPelanggan'); // Route untuk mendapatkan pelanggan dalam format JSON
+$routes->post('pelanggan/store', 'Pelanggan::storeData'); // Route untuk menyimpan data pelanggan
 $routes->get('/pelanggan/data-pelanggan', 'Pelanggan::getPelangganDataJson'); // Route untuk mendapatkan data Pelanggan dalam format JSON
 
 // Rute untuk Barang

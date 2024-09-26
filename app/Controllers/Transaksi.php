@@ -5,10 +5,10 @@ namespace App\Controllers;
 use App\Models\TransaksiModel; // Import model dengan benar
 use App\Controllers\BaseController;
 
-class Transaksi extends BaseController // Updated class name to Transaksi
+class Transaksi extends BaseController
 {
     protected $transaksiModel;
-    
+
     public function __construct()
     {
         // Inisialisasi model
@@ -40,28 +40,23 @@ class Transaksi extends BaseController // Updated class name to Transaksi
     }
 
     // Method untuk menampilkan data detail transaksi dalam bentuk JSON
-    public function getTransaksi() // Updated method name to camel case
+    public function getTransaksi()
     {
-        // Memanggil model TransaksiModel
-        $transaksiModel = new TransaksiModel(); // Use consistent variable name
-
         // Mengambil data dari tabel transaksi
-        $transaksi = $transaksiModel->getTransaksi(); // Ensure method name is correct
+        $transaksi = $this->transaksiModel->findAll(); // Ganti dengan method yang sesuai jika perlu
 
         // Mengembalikan data dalam format JSON
         return $this->response->setJSON($transaksi);
     }
-    
 
     // Function untuk menyimpan data dengan output JSON
     public function store()
     {
         // Ambil data JSON dari request
         $input_data = $this->request->getJSON(true);
-        
-        if($input_data) {
+
+        if ($input_data) {
             $data = [
-                'id' => $input_data['id'] ?? null,
                 'kd_user' => $input_data['kd_user'] ?? null,
                 'no_invoice' => $input_data['no_invoice'] ?? null,
                 'tgl_mulai' => $input_data['tgl_mulai'] ?? null,
@@ -71,26 +66,23 @@ class Transaksi extends BaseController // Updated class name to Transaksi
             ];
 
             // Simpan data menggunakan insert atau save
-            if($this->transaksiModel->save($data)) {
-                // Jika berhasil disimpan, kembalikan respon sukses
+            if ($this->transaksiModel->save($data)) {
                 return $this->respondCreated([
                     'message' => 'Berhasil menyimpan data',
                     'data' => $data
                 ])->setContentType('application/json');
             } else {
-                // Jika gagal menyimpan data, kembalikan respon error
                 return $this->response->setStatusCode(500)->setJSON([
                     'message' => 'Gagal menyimpan data',
                 ]);
             }
         }
 
-        // Jika input_data kosong
         return $this->response->setStatusCode(400)->setJSON([
             'message' => 'Data tidak valid atau tidak ditemukan',
         ]);
     }
-    
+
     public function delete($id = null)
     {
         // Periksa apakah data dengan ID yang diberikan ada di database
@@ -98,23 +90,22 @@ class Transaksi extends BaseController // Updated class name to Transaksi
 
         if ($transaksi) {
             // Jika data ditemukan, lakukan penghapusan
-            if ($this->transaksiModel->deleteTransaksi($id)) {
+            if ($this->transaksiModel->delete($id)) { // Gunakan delete() alih-alih deleteTransaksi()
                 return $this->response->setStatusCode(200)->setJSON([
                     'message' => 'Data transaksi berhasil dihapus'
                 ]);
             } else {
-                // Jika gagal menghapus data
                 return $this->response->setStatusCode(500)->setJSON([
                     'message' => 'Gagal menghapus data transaksi'
                 ]);
             }
         } else {
-            // Jika data tidak ditemukan
             return $this->response->setStatusCode(404)->setJSON([
                 'message' => 'Data transaksi tidak ditemukan'
             ]);
         }
     }
+
     public function update($id = null)
     {
         // Ambil data JSON dari request
@@ -126,7 +117,6 @@ class Transaksi extends BaseController // Updated class name to Transaksi
         if ($transaksi) {
             // Siapkan data yang akan diperbarui
             $data = [
-                'id' => $input_data['id'] ?? $transaksi['id'],
                 'kd_user' => $input_data['kd_user'] ?? $transaksi['kd_user'],
                 'no_invoice' => $input_data['no_invoice'] ?? $transaksi['no_invoice'],
                 'tgl_mulai' => $input_data['tgl_mulai'] ?? $transaksi['tgl_mulai'],
@@ -142,13 +132,11 @@ class Transaksi extends BaseController // Updated class name to Transaksi
                     'data' => $data
                 ]);
             } else {
-                // Jika gagal memperbarui data
                 return $this->response->setStatusCode(500)->setJSON([
                     'message' => 'Gagal memperbarui data transaksi'
                 ]);
             }
         } else {
-            // Jika data transaksi tidak ditemukan
             return $this->response->setStatusCode(404)->setJSON([
                 'message' => 'Data transaksi tidak ditemukan'
             ]);
