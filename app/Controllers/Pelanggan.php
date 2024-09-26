@@ -35,19 +35,56 @@ class Pelanggan extends BaseController
         // Mengembalikan data dalam format JSON
         return $this->response->setJSON($pelanggan);
     }
-    
+    // Function untuk menyimpan data dengan output JSON
     public function storeData()
-    {
-        $pelangganModel = new PelangganModel();
+{
+    $pelangganModel = new PelangganModel();
 
-        $data = [
-            'nama' => $this->request->getGet('nama'),
-            'alamat' => $this->request->getGet('alamat'),
-            'no_hp' => $this->request->getGet('no_hp'),
-            'username' => $this->request->getGet('username'),
-            'password' => $this->request->getGet('password'),
+    // Mendapatkan data input dari request
+    $data = [
+        'id'        => $this->request->getPost('id'),
+        'nama'      => $this->request->getPost('nama'),
+        'alamat'    => $this->request->getPost('alamat'),
+        'no_hp'     => $this->request->getPost('no_hp'),
+        'username'  => $this->request->getPost('username'),
+        'password'  => $this->request->getPost('password'),
+    ];
 
-        ];
+    if ($pelangganModel->savePelanggan($data)) {
+        return $this->response->setJSON(['message' => 'Data berhasil disimpan', 'status' => 1]);
+    } else {
+        return $this->response->setJSON(['message' => 'Gagal menyimpan data', 'status' => 0]);
     }
+}
+public function update($id)
+{
+    $pelangganModel = new PelangganModel();
 
+    // Mendapatkan data input dari request
+    $data = [
+        'id'        => $this->request->getPost('id'),
+        'nama'      => $this->request->getPost('nama'),
+        'alamat'    => $this->request->getPost('alamat'),
+        'no_hp'     => $this->request->getPost('no_hp'),
+        'username'  => $this->request->getPost('username'),
+        'password'  => $this->request->getPost('password'),
+    ];
+
+    if ($pelangganModel->savePelanggan($data)) {
+        return $this->response->setJSON(['message' => 'Data berhasil diperbarui', 'status' => 1]);
+    } else {
+        return $this->response->setJSON(['message' => 'Gagal memperbarui data', 'status' => 0]);
+    }
+}
+
+public function delete($id)
+{
+    $pelangganModel = new PelangganModel();
+
+    if ($pelangganModel->deletePelanggan($id)) {
+        return $this->response->setJSON(['message' => 'Data berhasil dihapus', 'status' => 1]);
+    } else {
+        return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
+    }
+}
 }

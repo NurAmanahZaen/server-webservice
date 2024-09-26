@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PelangganModel extends Model
 {
-    Protected $table = 'Pelanggan'; 
+    Protected $table = 'pelanggan'; 
     protected $primaryKey = 'id';
     protected $allowedFields = ['id', 'nama', 'alamat', 'username', 'password'];
 

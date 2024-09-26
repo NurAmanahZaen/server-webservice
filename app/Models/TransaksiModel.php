@@ -17,28 +17,41 @@ class TransaksiModel extends Model
         'status', 
         'keterangan'
     ]; 
-    
+
+    // Jika ingin mengembalikan hasil sebagai array
+    protected $returnType = 'array';
+
     // Method untuk mengambil semua data transaksi
     public function getTransaksi()
     {
-        return $this->findAll(); // Mengambil semua data transaksi
+        try {
+            return $this->findAll(); // Mengambil semua data transaksi
+        } catch (\Exception $e) {
+            // Optional: Menangani jika ada error
+            return ['error' => $e->getMessage()];
+        }
     }
 
     // Method untuk mengambil data transaksi berdasarkan id
     public function getTransaksiById($id)
     {
-        return $this->find($id); // Mengambil data transaksi berdasarkan ID
+        try {
+            return $this->find($id); // Mengambil data transaksi berdasarkan id
+        } catch (\Exception $e) {
+            // Optional: Menangani jika ada error
+            return ['error' => $e->getMessage()];
+        }
     }
 
-    // Method untuk menyimpan data baru atau memperbarui data yang sudah ada
-    public function saveTransaksi($data)
+    // Method untuk menyimpan data transaksi
+    public function store($data)
     {
-        return $this->save($data); // Menggunakan method save() dari CodeIgniter Model
-    }
-
-    // Method untuk menghapus data transaksi berdasarkan id
-    public function deleteTransaksi($id)
-    {
-        return $this->delete($id); // Menggunakan method delete() dari CodeIgniter Model
+        try {
+            // Menyimpan data transaksi dan mengembalikan ID yang baru saja disimpan
+            return $this->insert($data, true); 
+        } catch (\Exception $e) {
+            // Optional: Menangani jika ada error saat penyimpanan
+            return ['error' => $e->getMessage()];
+        }
     }
 }
