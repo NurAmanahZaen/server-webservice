@@ -9,10 +9,12 @@ use CodeIgniter\Router\RouteCollection;
 // Rute untuk Users
 $routes->get('users', 'Users::index'); // Route untuk halaman index users
 $routes->get('users/simple-json', 'Users::showSimpleJson'); // Route untuk menampilkan JSON sederhana
-$routes->get('users/data', 'Users::getUsersDataJson'); // Route untuk mendapatkan data user dalam format JSON
+$routes->get('users/data', 'Users::getUsers'); // Route untuk mendapatkan data user dalam format JSON
 $routes->post('users/store', 'Users::storeData'); // Route untuk menyimpan data users
 $routes->post('users/update/(:num)', 'Users::update/$1'); // Route untuk mengupdate data users berdasarkan id
 $routes->delete('users/delete/(:num)', 'Users::delete/$1'); // Route untuk menghapus data users berdasarkan id
+
+
 
 // Rute untuk DetailTransaksi
 $routes->get('detail-transaksi', 'DetailTransaksi::index'); 
