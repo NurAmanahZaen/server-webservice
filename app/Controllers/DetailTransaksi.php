@@ -2,87 +2,100 @@
 
 namespace App\Controllers;
 
-use App\Models\detailtransaksiModel as DetailTransaksiModel; 
+use App\Models\DetailTransaksiModels; 
+use CodeIgniter\RESTful\ResourceController;
 
-class DetailTransaksi extends BaseController 
+class DetailTransaksi extends ResourceController 
 {
-    public function index()
+    protected $detailtransaksiModel;
+
+    public function __construct()
     {
+        $this->detailtransaksiModel = new DetailTransaksiModel();
     }
     
-    public function showSimpleJson()
+    public function index()
     {
-        $data = [
-            'id' => '1',
-            'kd_transaksi' => '13283',
-            'kd_barang' => '1001',
-            'jumlah'  => '50', 
-            'status' => 'terkirim',
-        ];
-
-        return $this->response->setJSON($data);
+        $data_detailtransaksi = $this->detailtransaksiModel->findAll();
+        return $this->respond($data_detailtransaksi, 200, ['Content-Type' => 'application/json']);
     }
 
-    // Method untuk menampilkan data detail transaksi dalam bentuk JSON
-    public function getDetailTransaksi() // Updated method name to camel case
+    public function create()
     {
-        // Memanggil model DetailTransaksiModel
-        $detailtransaksiModel = new DetailTransaksi(); // Use consistent variable name
+        $input_data = $this->request->getJSON(true);
 
-        // Mengambil data dari tabel transaksi
-        $detailtransaksi = $detailtransaksiModel->getDetailTransaksi(); // Ensure method name is correct
+        if ($input_data) {
+            $data = [
+                'id'     => $input_data['id'] ?? '',
+                'kd_transaksi' => $input_data['kd_transaksi'] ?? '',
+                'kd_barang'      => $input_data['kd_barang'] ?? '',
+                'jumlah'     => $input_data['jumlah'] ?? '',
+                'status'   => $input_data['status'] ?? '',
+            ];
 
-        // Mengembalikan data dalam format JSON
+            if ($this->detailtransaksiModel->insert($data)) {
+                return $this->respondCreated([
+                    'status'  => 'success', 
+                    'message' => 'Detail transaksi berhasil ditambahkan'
+                ])->setContentType('application/json');
+            } else {
+                return $this->fail('Gagal menambah Detail transaksi', 400)
+                             ->setContentType('application/json');
+            }
+        } else {
+            return $this->fail('Invalid JSON input', 400)
+                         ->setContentType('application/json');
+        }
+    }
+
+    public function show($id = null)
+    {
+        $detailtransaksimodel = new DetailTransaksiModel();
+
+        $detailtransaksi = $detailtransaksimodel->getDetailTransaksiById($id);
+
         return $this->response->setJSON($detailtransaksi);
     }
-    // Function untuk menyimpan data dengan output JSON
-    public function storeData()
-{
-    $detailtransaksiModel = new DetailTransaksiModel();
 
-    // Mendapatkan data input dari request
-    $data = [
-       'id' => $this->request->getPost('id'),
-        'kd_transaksi' => $this->request->getPost('kd_transaksi'), 
-        'kd_barang' => $this->request->getPost('kd_barang'),
-        'jumlah' => $this->request->getPost('jumlah'),
-        'status' => $this->request->getPost('status'),
-    ];
+    public function getDetailTransaksi()
+    {
+        $detailtransaksiModel = new DetailTransaksiModel(); // Corrected variable name to match conventions
 
-    if ($detailtransaksiModel->saveDetailTransaksi($data)) {
-        return $this->response->setJSON(['message' => 'Data berhasil disimpan', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal menyimpan data', 'status' => 0]);
-    }
-}
-public function update($id)
-{
-    $detailtransaksiModel = new DetailTransaksiModel();
+        $detailtransaksis = $detailtransaksiModel->getDetailTransaksi(); // Changed to match the correct variable name
 
-    // Mendapatkan data input dari request
-    $data = [
-        'id' => $this->request->getPost('id'),
-        'kd_transaksi' => $this->request->getPost('kd_transaksi'), 
-        'kd_barang' => $this->request->getPost('kd_barang'),
-        'jumlah' => $this->request->getPost('jumlah'),
-        'status' => $this->request->getPost('status'),
-    ];
-
-    if ($detailTransaksiModel->saveDetailTransaksi($data)) {
-        return $this->response->setJSON(['message' => 'Data berhasil diperbarui', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal memperbarui data', 'status' => 0]);
-    }
+        return $this->response->setJSON($detailtransaksis);
 }
 
-public function delete($id)
-{
-    $detailtransaksiModel = new DetailTransaksiModel();
+    public function update($id = null)
+    {
+        $input_data = $this->request->getJSON(true);
 
-    if ($detailTransaksiModel->deleteDetailTransaksi($id)) {
-        return $this->response->setJSON(['message' => 'Data berhasil dihapus', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
+        if ($input_data) {
+            $data = [
+                'id' => $this->request->getPost('id'),
+                'kd_transaksi' => $this->request->getPost('kd_transaksi'),
+                'kd_barang' => $this->request->getPost('kd_barang'),
+                'jumlah' => $this->request->getPost('jumlah'),
+                'status' => $this->request->getPost('status'),
+    
+            ];
+
+            if ($this->detailtransaksiModel->update($id, $data)) {
+                return $this->respond(['status' => 'success', 'message' => 'Detail transaksi berhasil diperbarui'], 200, ['Content-Type' => 'application/json']);
+            } else {
+                return $this->fail('Gagal memperbarui detail transaksi', 400, ['Content-Type' => 'application/json']);
+            }
+        } else {
+            return $this->fail('Invalid JSON input', 400, ['Content-Type' => 'application/json']);
+        }
+    }
+
+    public function delete($id = null)
+    {
+        if ($this->detailtransaksiModel->delete($id)) {
+            return $this->respondDeleted(['status' => 'success', 'message' => 'Barang berhasil dihapus'], 200, ['Content-Type' => 'application/json']);
+        } else {
+            return $this->fail('Gagal menghapus barang', 400, ['Content-Type' => 'application/json']);
+        }
     }
 }
-} 
