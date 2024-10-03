@@ -2,128 +2,145 @@
 
 namespace App\Controllers;
 
-use App\Models\BarangModel;
-use CodeIgniter\RESTful\ResourceController;
+use App\Models\TransaksiModel;
+use App\Controllers\BaseController;
 
-class BarangServer extends ResourceController
+class Transaksi extends BaseController
 {
-    protected $barangModel;
+    protected $transaksiModel;
 
     public function __construct()
     {
-        $this->barangModel = new BarangModel();
+        $this->transaksiModel = new TransaksiModel();
     }
-
-    // Method untuk mengambil semua data barang
     public function index()
     {
-        try {
-            $data_barang = $this->barangModel->findAll();
-            return $this->respond($data_barang, 200, ['Content-Type' => 'application/json']);
-        } catch (\Exception $e) {
-            return $this->fail(['error' => $e->getMessage()], 500, ['Content-Type' => 'application/json']);
-        }
     }
 
-    // Method untuk membuat data barang baru
+    // Fungsi untuk mendapatkan semua data transaksi
+    public function data()
+    {
+        $data_transaksi = $this->transaksiModel->findAll();
+        return $this->response->setJSON($data_transaksi);
+    }
+
+    // Fungsi untuk menyimpan data transaksi
     public function create()
     {
-        try {
-            $input_data = $this->request->getJSON(true);
+        $input_data = $this->request->getJSON(true);
 
-            if ($input_data) {
-                $data = [
-                    'image'     => $input_data['image'] ?? 'no-image.png',
-                    'kd_barang' => $input_data['kd_barang'] ?? '',
-                    'nama'      => $input_data['nama'] ?? '',
-                    'merek'     => $input_data['merek'] ?? '',
-                    'kd_user'   => $input_data['kd_user'] ?? '',
-                    'harga'     => $input_data['harga'] ?? '',
-                    'stok'      => $input_data['stok'] ?? ''
-                ];
+        if ($input_data) {
+            $data = [
+                'kd_user'      => $input_data['kd_user'] ?? '',
+                'no_invoice'   => $input_data['no_invoice'] ?? '',
+                'tgl_mulai'    => $input_data['tgl_mulai'] ?? '',
+                'tgl_kembali'  => $input_data['tgl_kembali'] ?? '',
+                'status'       => $input_data['status'] ?? '',
+                'keterangan'   => $input_data['keterangan'] ?? ''
+            ];
 
-                if ($this->barangModel->insert($data)) {
-                    return $this->respondCreated(
-                        ['status' => 'success', 'message' => 'Barang berhasil ditambahkan']
-                    )->setContentType('application/json');
-                } else {
-                    return $this->fail(
-                        'Gagal menambah barang', 
-                        400
-                    )->setContentType('application/json');
-                }
+            // Simpan data
+            if ($this->transaksiModel->insert($data)) {
+                return $this->response->setStatusCode(201)->setJSON([
+                    'status' => 'success',
+                    'message' => 'Transaksi berhasil ditambahkan',
+                    'data' => $data
+                ]);
             } else {
-                return $this->fail(
-                    'Invalid JSON input', 
-                    400
-                )->setContentType('application/json');
+                return $this->response->setStatusCode(500)->setJSON([
+                    'status' => 'error',
+                    'message' => 'Gagal menambah transaksi'
+                ]);
             }
-        } catch (\Exception $e) {
-            return $this->fail(['error' => $e->getMessage()], 500, ['Content-Type' => 'application/json']);
         }
+
+        return $this->response->setStatusCode(400)->setJSON([
+            'status' => 'error',
+            'message' => 'Invalid JSON input'
+        ]);
     }
 
-    // Method untuk mengambil data barang berdasarkan id
+    // Fungsi untuk menampilkan data transaksi berdasarkan ID
     public function show($id = null)
     {
-        try {
-            $barang = $this->barangModel->find($id);
+        $transaksi = $this->transaksiModel->find($id);
 
-            if ($barang) {
-                return $this->respond($barang, 200, ['Content-Type' => 'application/json']);
-            } else {
-                return $this->failNotFound('Barang tidak ditemukan')->setContentType('application/json');
-            }
-        } catch (\Exception $e) {
-            return $this->fail(['error' => $e->getMessage()], 500, ['Content-Type' => 'application/json']);
+        if ($transaksi) {
+            return $this->response->setJSON($transaksi);
+        } else {
+            return $this->response->setStatusCode(404)->setJSON([
+                'status' => 'error',
+                'message' => 'Data transaksi tidak ditemukan'
+            ]);
         }
     }
 
-    // Method untuk memperbarui data barang berdasarkan id
+    // Fungsi untuk memperbarui data transaksi
     public function update($id = null)
     {
-        try {
-            $input_data = $this->request->getJSON(true);
+        $input_data = $this->request->getJSON(true);
 
-            if ($input_data) {
+        if ($input_data) {
+            $transaksi = $this->transaksiModel->find($id);
+
+            if ($transaksi) {
                 $data = [
-                    'image'     => $input_data['image'] ?? 'no-image.png',
-                    'kd_barang' => $input_data['kd_barang'] ?? '',
-                    'nama'      => $input_data['nama'] ?? '',
-                    'merek'     => $input_data['merek'] ?? '',
-                    'kd_user'   => $input_data['kd_user'] ?? '',
-                    'harga'     => $input_data['harga'] ?? '',
-                    'stok'      => $input_data['stok'] ?? ''
+                    'kd_user'      => $input_data['kd_user'] ?? $transaksi['kd_user'],
+                    'no_invoice'   => $input_data['no_invoice'] ?? $transaksi['no_invoice'],
+                    'tgl_mulai'    => $input_data['tgl_mulai'] ?? $transaksi['tgl_mulai'],
+                    'tgl_kembali'  => $input_data['tgl_kembali'] ?? $transaksi['tgl_kembali'],
+                    'status'       => $input_data['status'] ?? $transaksi['status'],
+                    'keterangan'   => $input_data['keterangan'] ?? $transaksi['keterangan']
                 ];
 
-                if ($this->barangModel->update($id, $data)) {
-                    return $this->respond(['status' => 'success', 'message' => 'Barang berhasil diperbarui'], 200, ['Content-Type' => 'application/json']);
+                if ($this->transaksiModel->update($id, $data)) {
+                    return $this->response->setStatusCode(200)->setJSON([
+                        'status' => 'success',
+                        'message' => 'Transaksi berhasil diperbarui',
+                        'data' => $data
+                    ]);
                 } else {
-                    return $this->fail('Gagal memperbarui barang', 400, ['Content-Type' => 'application/json']);
+                    return $this->response->setStatusCode(500)->setJSON([
+                        'status' => 'error',
+                        'message' => 'Gagal memperbarui transaksi'
+                    ]);
                 }
             } else {
-                return $this->fail('Invalid JSON input', 400, ['Content-Type' => 'application/json']);
+                return $this->response->setStatusCode(404)->setJSON([
+                    'status' => 'error',
+                    'message' => 'Data transaksi tidak ditemukan'
+                ]);
             }
-        } catch (\Exception $e) {
-            return $this->fail(['error' => $e->getMessage()], 500, ['Content-Type' => 'application/json']);
         }
+
+        return $this->response->setStatusCode(400)->setJSON([
+            'status' => 'error',
+            'message' => 'Invalid JSON input'
+        ]);
     }
 
-    // Method untuk menghapus data barang berdasarkan id
+    // Fungsi untuk menghapus data transaksi
     public function delete($id = null)
     {
-        try {
-            if ($this->barangModel->find($id)) {
-                if ($this->barangModel->delete($id)) {
-                    return $this->respondDeleted(['status' => 'success', 'message' => 'Barang berhasil dihapus'], 200, ['Content-Type' => 'application/json']);
-                } else {
-                    return $this->fail('Gagal menghapus barang', 400, ['Content-Type' => 'application/json']);
-                }
+        $transaksi = $this->transaksiModel->find($id);
+
+        if ($transaksi) {
+            if ($this->transaksiModel->delete($id)) {
+                return $this->response->setStatusCode(200)->setJSON([
+                    'status' => 'success',
+                    'message' => 'Transaksi berhasil dihapus'
+                ]);
             } else {
-                return $this->failNotFound('Barang tidak ditemukan')->setContentType('application/json');
+                return $this->response->setStatusCode(500)->setJSON([
+                    'status' => 'error',
+                    'message' => 'Gagal menghapus transaksi'
+                ]);
             }
-        } catch (\Exception $e) {
-            return $this->fail(['error' => $e->getMessage()], 500, ['Content-Type' => 'application/json']);
+        } else {
+            return $this->response->setStatusCode(404)->setJSON([
+                'status' => 'error',
+                'message' => 'Data transaksi tidak ditemukan'
+            ]);
         }
     }
 }
