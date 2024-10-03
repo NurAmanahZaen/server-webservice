@@ -51,7 +51,7 @@ $routes->get('/barang/data-barang', 'Barang::getBarangDataJson'); // Route untuk
 // Rute untuk transaksi
 $routes->get('transaksi', 'Transaksi::index'); // Route untuk menampilkan halaman index
 $routes->get('transaksi/simple-json', 'Transaksi::showSimpleJson'); // Route untuk menampilkan data array dalam format JSON
-$routes->get('transaksi/data', 'Transaksi::getTransaksi'); // Route untuk mendapatkan detail transaksi dalam format JSON
-$routes->get('transaksi/store', 'Transaksi::create');
+$routes->get('transaksi/data', 'Transaksi::show'); // Route untuk mendapatkan detail transaksi dalam format JSON
+$routes->post('transaksi/store', 'Transaksi::create'); // Route untuk menyimpan data transaksi
 $routes->post('transaksi/update/(:num)', 'Transaksi::update/$1'); // Route untuk mengupdate data berdasarkan id
-$routes->get('transaksi/delete/(:num)', 'Transaksi::delete/$1');
+$routes->get('transaksi/delete/(:num)', 'Transaksi::delete/$1'); // Route untuk menghapus transaksi berdasarkan id
