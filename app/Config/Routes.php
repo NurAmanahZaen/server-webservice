@@ -17,12 +17,14 @@ $routes->delete('users/delete/(:num)', 'Users::delete/$1'); // Route untuk mengh
 
 
 // Rute untuk DetailTransaksi
-$routes->get('detailtransaksi', 'DetailTransaksiController::index');
+$routes->get('detailtransaksi', 'DetailTransaksi::index');
 $routes->get('detailtransaksi/json', 'DetailTransaksi::showSimpleJson');
-$routes->get('detailtransaksi/data', 'DetailTransaksi::getDetailTransaksi');
+$routes->get('detailtransaksi/data', 'DetailTransaksi::GetDetailTransaksi');
 $routes->post('detailtransaksi/store', 'DetailTransaksi::storeData');
-$routes->put('detailtransaksi/update/(:num)', 'DetailTransaksi::update/$1');
-$routes->delete('detailtransaksi/delete/(:num)', 'DetailTransaksi::delete/$1');
+$routes->post('detailtransaksi/data-detailtransaksi', 'detailtransaksi::getDetailTransaksiDataJson');
+$routes->post('detailtransaksi/update/(:num)', 'DetailTransaksi::update/$1'); // Route untuk mengupdate data barang berdasarkan id
+$routes->delete('detailtransaksi/delete/(:num)', 'DetailTransaksi::delete/$1'); // Route untuk menghapus data barang berdasarkan id
+$routes->get('/detailtransaksi/data-datatransaksi', 'DetailTransaksi::getDetailTransaksiDataJson'); // Route untuk mendapatkan data Pelanggan dalam format JSON
 
 
 // Rute untuk Home
