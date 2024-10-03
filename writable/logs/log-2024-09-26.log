@@ -1,4 +1,4 @@
-CRITICAL - 2024-09-26 02:04:39 --> ParseError: syntax error, unexpected token ";"
+zCRITICAL - 2024-09-26 02:04:39 --> ParseError: syntax error, unexpected token ";"
 [Method: GET, Route: transaksi]
 in APPPATH\Controllers\Transaksi.php on line 62.
  1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\server-webservice\\app\\Controllers\\Transaksi.php')
@@ -52,3 +52,205 @@ CRITICAL - 2024-09-26 03:14:18 --> ErrorException: Declaration of App\Models\Tra
 [Method: GET, Route: transaksi/data]
 in APPPATH\Models\TransaksiModel.php on line 37.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+<<<<<<< HEAD
+CRITICAL - 2024-09-26 05:28:46 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detail-transaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+=======
+CRITICAL - 2024-09-26 04:57:13 --> Error: Class "App\Controllers\UsersModel" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsers()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+>>>>>>> 14f5de8ca01e3faa0a2d0ebf669e6184b7d2c4e9
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:31:09 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detail-transaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:34:26 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detail-transaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:34:29 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detail-transaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:35:55 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detail-transaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:37:02 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:37:06 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:37:07 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:45:13 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:46:10 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:46:12 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:47:45 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:47:47 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:47:47 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:47:47 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:48:30 --> Error: Class "App\Controllers\detail_transaksi" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:48:32 --> Error: Class "App\Controllers\detail_transaksi" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:48:32 --> Error: Class "App\Controllers\detail_transaksi" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-09-26 05:51:06 --> Error: Class "App\Models\DetailTransaksiModel" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+=======
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+>>>>>>> 14f5de8ca01e3faa0a2d0ebf669e6184b7d2c4e9

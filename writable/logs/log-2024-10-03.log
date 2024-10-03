@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CRITICAL - 2024-10-03 01:44:30 --> ErrorException: Undefined variable $barangModel
 [Method: GET, Route: barang/data]
 in APPPATH\Controllers\Barang.php on line 32.
@@ -22,12 +23,18 @@ in APPPATH\Controllers\Users.php on line 35.
 CRITICAL - 2024-10-03 01:56:07 --> Error: Class "App\Models\UserDetailTransaksi" not found
 [Method: GET, Route: detail-transaksi/data]
 in APPPATH\Controllers\DetailTransaksi.php on line 36.
+=======
+CRITICAL - 2024-10-03 01:20:28 --> Error: Class "App\Models\DetailTransaksi" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 29.
+>>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
  1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
  2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
  7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
 CRITICAL - 2024-10-03 02:51:11 --> TypeError: CodeIgniter\RESTful\ResourceController::respond(): Argument #3 ($message) must be of type string, array given, called in C:\xampp\htdocs\server-webservice\app\Controllers\Pelanggan.php on line 19
 [Method: GET, Route: pelanggan/data]
@@ -45,8 +52,161 @@ CRITICAL - 2024-10-03 03:01:52 --> Error: Class "App\Controllers\BarangModel" no
 in APPPATH\Controllers\Pelanggan.php on line 61.
  1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pelanggan->getPelanggan()
  2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+=======
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 01:22:23 --> Error: Class "App\Models\DetailTransaksi" not found
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 30.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+>>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
  7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+=======
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 01:22:42 --> ErrorException: Undefined variable $detailtransaksiModel
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 33.
+ 1 APPPATH\Controllers\DetailTransaksi.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $detailtransaksiModel', 'C:\\laragon\\www\\server-webservice\\app\\Controllers\\DetailTransaksi.php', 33)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+ERROR - 2024-10-03 01:24:54 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\laragon\www\server-webservice\system\Database\MySQLi\Connection.php:187
+Stack trace:
+#0 C:\laragon\www\server-webservice\system\Database\MySQLi\Connection.php(187): mysqli->real_connect('localhost', 'root', '', 'db_server', 3306, '', 0)
+#1 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\server-webservice\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\server-webservice\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\server-webservice\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\server-webservice\app\Models\detailtransaksiModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\server-webservice\app\Controllers\DetailTransaksi.php(33): App\Models\detailtransaksiModel->getDetailTransaksi()
+#8 C:\laragon\www\server-webservice\system\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+#9 C:\laragon\www\server-webservice\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+#10 C:\laragon\www\server-webservice\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\server-webservice\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\server-webservice\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\server-webservice\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\server-webservice\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\laragon\www\server-webservice\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\server-webservice\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\laragon\www\server-webservice\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\server-webservice\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\laragon\www\server-webservice\app\Models\detailtransaksiModel.php(17): CodeIgniter\BaseModel->findAll()
+#6 C:\laragon\www\server-webservice\app\Controllers\DetailTransaksi.php(33): App\Models\detailtransaksiModel->getDetailTransaksi()
+#7 C:\laragon\www\server-webservice\system\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+#8 C:\laragon\www\server-webservice\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+#9 C:\laragon\www\server-webservice\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\server-webservice\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\server-webservice\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\server-webservice\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\server-webservice\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-10-03 01:24:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: GET, Route: detailtransaksi/data]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `detail_transaksi`', [], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\detailtransaksiModel.php(17): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\DetailTransaksi.php(33): App\Models\detailtransaksiModel->getDetailTransaksi()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 01:25:21 --> ErrorException: Undefined variable $detailtransaksiModel
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 33.
+ 1 APPPATH\Controllers\DetailTransaksi.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $detailtransaksiModel', 'C:\\laragon\\www\\server-webservice\\app\\Controllers\\DetailTransaksi.php', 33)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+ERROR - 2024-10-03 01:25:57 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\laragon\www\server-webservice\system\Database\MySQLi\Connection.php:187
+Stack trace:
+#0 C:\laragon\www\server-webservice\system\Database\MySQLi\Connection.php(187): mysqli->real_connect('localhost', 'root', '', 'db_server', 3306, '', 0)
+#1 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\server-webservice\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\server-webservice\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\server-webservice\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\server-webservice\app\Models\detailtransaksiModel.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\server-webservice\app\Controllers\DetailTransaksi.php(33): App\Models\detailtransaksiModel->getDetailTransaksi()
+#8 C:\laragon\www\server-webservice\system\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+#9 C:\laragon\www\server-webservice\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+#10 C:\laragon\www\server-webservice\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\server-webservice\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\server-webservice\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\server-webservice\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\server-webservice\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\laragon\www\server-webservice\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\server-webservice\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\server-webservice\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\laragon\www\server-webservice\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\server-webservice\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\laragon\www\server-webservice\app\Models\detailtransaksiModel.php(17): CodeIgniter\BaseModel->findAll()
+#6 C:\laragon\www\server-webservice\app\Controllers\DetailTransaksi.php(33): App\Models\detailtransaksiModel->getDetailTransaksi()
+#7 C:\laragon\www\server-webservice\system\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+#8 C:\laragon\www\server-webservice\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+#9 C:\laragon\www\server-webservice\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\server-webservice\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\server-webservice\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\server-webservice\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\server-webservice\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-10-03 01:25:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: GET, Route: detailtransaksi/data]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `detail_transaksi`', [], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\detailtransaksiModel.php(17): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\DetailTransaksi.php(33): App\Models\detailtransaksiModel->getDetailTransaksi()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 01:31:35 --> ErrorException: Undefined variable $detailtransaksiModel
+[Method: GET, Route: detailtransaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 33.
+ 1 APPPATH\Controllers\DetailTransaksi.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $detailtransaksiModel', 'C:\\laragon\\www\\server-webservice\\app\\Controllers\\DetailTransaksi.php', 33)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+>>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
