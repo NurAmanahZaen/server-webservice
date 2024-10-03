@@ -87,4 +87,4 @@ public function delete($id)
         return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
     }
 }
-}
+} 

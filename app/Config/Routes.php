@@ -15,12 +15,13 @@ $routes->post('users/update/(:num)', 'Users::update/$1'); // Route untuk mengupd
 $routes->delete('users/delete/(:num)', 'Users::delete/$1'); // Route untuk menghapus data users berdasarkan id
 
 // Rute untuk DetailTransaksi
-$routes->get('detail-transaksi', 'DetailTransaksi::index'); 
-$routes->get('detail-transaksi/simple-json', 'DetailTransaksi::showSimpleJson');
-$routes->get('detail-transaksi/data', 'DetailTransaksi::getDetailTransaksi');
-$routes->post('detail-transaksi/store', 'DetailTransaksi::storeData'); 
-$routes->post('detail-transaksi/update/(:num)', 'DetailTransaksi::update/$1'); 
-$routes->delete('detail-transaksi/delete/(:num)', 'DetailTransaksi::delete/$1');
+$routes->get('detailtransaksi', 'DetailTransaksiController::index');
+$routes->get('detailtransaksi/json', 'DetailTransaksi::showSimpleJson');
+$routes->get('detailtransaksi/data', 'DetailTransaksi::getDetailTransaksi');
+$routes->post('detailtransaksi/store', 'DetailTransaksi::storeData');
+$routes->put('detailtransaksi/update/(:num)', 'DetailTransaksi::update/$1');
+$routes->delete('detailtransaksi/delete/(:num)', 'DetailTransaksi::delete/$1');
+
 
 // Rute untuk Home
 $routes->get('/', 'Home::index');
@@ -31,7 +32,7 @@ $routes->get('/pelanggan/json', 'Pelanggan::showSimpleJson'); // Route untuk men
 $routes->get('pelanggan/data', 'Pelanggan::getPelanggan'); // Route untuk mendapatkan pelanggan dalam format JSON
 $routes->post('pelanggan/store', 'Pelanggan::storeData'); // Route untuk menyimpan data pelanggan
 $routes->post('pelanggan/update/(:num)', 'Transaksi::update/$1'); // Route untuk mengupdate data berdasarkan id
-$routes->get('/pelanggan/data-pelanggan', 'Pelanggan::getPelangganDataJson'); // Route untuk mendapatkan data Pelanggan dalam format JSON
+$routes->get('/pelanggan/data-pelanggan', 'Pelanggan::getPelangganDataJson'); // Route untuk mengit add gitdapatkan data Pelanggan dalam format JSON
 
 // Rute untuk Barang
 $routes->get('barang', 'Barang::index'); // Route untuk menampilkan halaman index

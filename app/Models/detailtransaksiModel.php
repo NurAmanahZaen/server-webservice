@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DetailTransaksi extends Model
+class detailtransaksiModel extends Model
 {
     protected $table      = 'detail_transaksi'; // Nama tabel
     protected $primaryKey = 'id'; // Primary key dari tabel
