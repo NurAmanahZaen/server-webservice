@@ -3,88 +3,98 @@
 namespace App\Controllers;
 
 use App\Models\PelangganModel;
-class Pelanggan extends BaseController
+use CodeIgniter\RESTful\ResourceController;
+class Pelanggan extends ResourceController
 {
+    protected $pelangganModel;
+
+    public function __construct()
+    {
+        $this->pelangganModel = new PelangganModel();
+    }
+
     public function index()
     {
+        $data_pelanggan = $this->pelangganModel->findAll();
+        return $this->respond($data_pelanggan, 200, ['Content-Type' => 'application/json']);
     }
     
-    public function showSimpleJson()
+    public function create()
     {
+        if ($input_data) {
         $data = [
-            'id' => 01,
-            'nama' => 'Nurma',
-            'alamat' => 'Pemalang',
-            'no_hp' => '082362483486',
-            'username' => 'akunurma',
-            'password' => 123456
-        ];
+                'id' => $this->request->getPost('id'),
+                'nama' => $this->request->getPost('nama'),
+                'alamat' => $this->request->getPost('alamat'),
+                'username' => $this->request->getPost('username'),
+                'password' => $this->request->getPost('password')
+                ];
 
-        return $this->response->setJSON($data);
+            if ($this->pelangganModel->insertPelanggan($data)) {
+                return $this->respondCreated(
+                    ['status' => 'success', 'message' => 'Pelanggan berhasil ditambahkan']
+                )->setContentType('application/json');
+            } else {
+                return $this->fail(
+                    'Gagal menambah pelanggan', 
+                    400
+                )->setContentType('application/json');
+            }
+        } else {
+            return $this->fail(
+                'Invalid JSON input', 
+                400
+            )->setContentType('application/json');
+            }
+
     }
-
-    // Method untuk menampilkan data detail transaksi dalam bentuk JSON
-    public function getPelanggan() // Updated method name to camel case
+    public function show($id = null)
     {
-        // Memanggil model PelangganModel
-        $pelangganModel = new PelangganModel(); // Use consistent variable name
+        $pelangganmodel = new PelangganModel();
 
-        // Mengambil data dari tabel transaksi
-        $pelanggan = $pelangganModel->getPelanggan(); // Ensure method name is correct
+        $pelanggan = $pelangganmodel->getPelangganById($id);
 
-        // Mengembalikan data dalam format JSON
         return $this->response->setJSON($pelanggan);
     }
-    // Function untuk menyimpan data dengan output JSON
-    public function storeData()
-{
-    $pelangganModel = new PelangganModel();
+    
+    public function getPelanggan()
+    {
+        $pelangganModel = new PelangganModel(); // Corrected variable name to match conventions
 
-    // Mendapatkan data input dari request
-    $data = [
-        'id'        => $this->request->getPost('id'),
-        'nama'      => $this->request->getPost('nama'),
-        'alamat'    => $this->request->getPost('alamat'),
-        'no_hp'     => $this->request->getPost('no_hp'),
-        'username'  => $this->request->getPost('username'),
-        'password'  => $this->request->getPost('password'),
-    ];
+        $pelanggans = $pelangganModel->getPelanggan(); // Changed to match the correct variable name
 
-    if ($pelangganModel->savePelanggan($data)) {
-        return $this->response->setJSON(['message' => 'Data berhasil disimpan', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal menyimpan data', 'status' => 0]);
+        return $this->response->setJSON($pelanggans);
     }
-}
-public function update($id)
-{
-    $pelangganModel = new PelangganModel();
 
-    // Mendapatkan data input dari request
-    $data = [
-        'id'        => $this->request->getPost('id'),
-        'nama'      => $this->request->getPost('nama'),
-        'alamat'    => $this->request->getPost('alamat'),
-        'no_hp'     => $this->request->getPost('no_hp'),
-        'username'  => $this->request->getPost('username'),
-        'password'  => $this->request->getPost('password'),
-    ];
 
-    if ($pelangganModel->savePelanggan($data)) {
-        return $this->response->setJSON(['message' => 'Data berhasil diperbarui', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal memperbarui data', 'status' => 0]);
+    public function update($id = null)
+    {
+        $input_data = $this->request->getJSON(true);
+
+        if ($input_data) {
+            $data = [
+                'id' => $this->request->getPost('id'),
+                'nama' => $this->request->getPost('nama'),
+                'alamat' => $this->request->getPost('alamat'),
+                'username' => $this->request->getPost('username'),
+                'password' => $this->request->getPost('password')
+            ];
+
+            if ($this->pelangganModel->update($id, $data)) {
+                return $this->respond(['status' => 'success', 'message' => 'Pelanggan berhasil diperbarui'], 200, ['Content-Type' => 'application/json']);
+            } else {
+                return $this->fail('Gagal memperbarui pelanggan', 400, ['Content-Type' => 'application/json']);
+            }
+        } else {
+            return $this->fail('Invalid JSON input', 400, ['Content-Type' => 'application/json']);
+        }
     }
-}
-
-public function delete($id)
-{
-    $pelangganModel = new PelangganModel();
-
-    if ($pelangganModel->deletePelanggan($id)) {
-        return $this->response->setJSON(['message' => 'Data berhasil dihapus', 'status' => 1]);
-    } else {
-        return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
+    public function delete($id = null)
+    {
+        if ($this->pelangganModel->delete($id)) {
+            return $this->respondDeleted(['status' => 'success', 'message' => 'Pelanggan berhasil dihapus'], 200, ['Content-Type' => 'application/json']);
+        } else {
+            return $this->fail('Gagal menghapus pelanggan', 400, ['Content-Type' => 'application/json']);
+        }
     }
-}
 }

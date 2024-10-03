@@ -31,6 +31,8 @@ $routes->get('/pelanggan/json', 'Pelanggan::showSimpleJson'); // Route untuk men
 $routes->get('pelanggan/data', 'Pelanggan::getPelanggan'); // Route untuk mendapatkan pelanggan dalam format JSON
 $routes->post('pelanggan/store', 'Pelanggan::storeData'); // Route untuk menyimpan data pelanggan
 $routes->get('/pelanggan/data-pelanggan', 'Pelanggan::getPelangganDataJson'); // Route untuk mendapatkan data Pelanggan dalam format JSON
+$routes->post('pelanggan/update/(:num)', 'Pelanggan::update/$1'); // Route untuk mengupdate data berdasarkan id
+$routes->delete('pelanggan/delete/(:num)', 'Pelanggan::delete/$1');
 
 // Rute untuk Barang
 $routes->get('barang', 'Barang::index'); // Route untuk menampilkan halaman index
