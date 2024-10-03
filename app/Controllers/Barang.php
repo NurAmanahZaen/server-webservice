@@ -3,52 +3,105 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
-class Barang extends BaseController
+use CodeIgniter\RESTful\ResourceController;
+class Barang extends ResourceController
 {
+    protected $barangModel;
+
+    public function __construct()
+    {
+        $this->barangModel = new BarangModel();
+    }
+
     public function index()
     {
+        $data_barang = $this->barangModel->findAll();
+        return $this->respond($data_barang, 200, ['Content-Type' => 'application/json']);
+    }
+
+    public function create()
+    {
+         $input_data = $this->request->getJSON(true);
+
+        if ($input_data) {
+            $data = [
+                'image'     => $input_data['image'] ?? 'no-image.png',
+                'kd_barang' => $input_data['kd_barang'] ?? '',
+                'nama'      => $input_data['nama'] ?? '',
+                'merek'     => $input_data['merek'] ?? '',
+                'kd_user'   => $input_data['kd_user'] ?? '',
+                'harga'     => $input_data['harga'] ?? '',
+                'stok'      => $input_data['stok'] ?? ''
+            ];
+
+        if ($this->barangModel->saveBarang($data)) {
+            return $this->respondCreated(
+             ['status' => 'success', 'message' => 'Barang berhasil ditambahkan']
+                )->setContentType('application/json');
+            } else {
+                return $this->fail(
+                    'Gagal menambah barang', 
+                    400
+                )->setContentType('application/json');
+            }
+        } else {
+            return $this->fail(
+                'Invalid JSON input', 
+                400
+            )->setContentType('application/json');
+        }
     }
     
-    public function showSimpleJson()
+ public function show($id = null)
     {
-        $data = [
-            'id' => 01,
-            'image' => 'pict',
-            'kd_barang' => 'B123',
-            'nama' => 'nisa',
-            'merek' => 'nixy',
-            'harga' => '89000',
-            'stok' => '15',
-            'kd_user' => 123456
-        ];
+        $barangmodel = new BarangModel();
 
-        return $this->response->setJSON($data);
+        $barang = $barangmodel->getBarangById($id);
+
+        return $this->response->setJSON($barang);
     }
 
-    public function getBarangDataJson()
+    public function getBarang()
     {
-        $BarangModel = new BarangModel();
+        $barangModel = new BarangModel(); // Corrected variable name to match conventions
 
-        $Barangs = $barangModel->getBarang();
+        $barangs = $barangModel->getBarang(); // Changed to match the correct variable name
 
         return $this->response->setJSON($barangs);
     }
-    
-    public function storeData()
+
+    public function update($id = null)
     {
-        $barangModel = new BarangModel();
+        $input_data = $this->request->getJSON(true);
 
-        $data = [
-            'id' => $this->request->getGet('id'),
-            'image' => $this->request->getGet('image'),
-            'kd_barang' => $this->request->getGet('kd_barang'),
-            'nama' => $this->request->getGet('nama'),
-            'merek' => $this->request->getGet('merek'),
-            'harga' => $this->request->getGet('harga'),
-            'stok' => $this->request->getGet('stok'),
-            'kd_user' => $this->request->getGet('kd_user'),
+        if ($input_data) {
+            $data = [
+                'image'     => $input_data['image'] ?? 'no-image.png',
+                'kd_barang' => $input_data['kd_barang'] ?? '',
+                'nama'      => $input_data['nama'] ?? '',
+                'merek'     => $input_data['merek'] ?? '',
+                'kd_user'   => $input_data['kd_user'] ?? '',
+                'harga'     => $input_data['harga'] ?? '',
+                'stok'      => $input_data['stok'] ?? ''
+            ];
 
-        ];
+            if ($this->barangModel->update($id, $data)) {
+                return $this->respond(['status' => 'success', 'message' => 'Barang berhasil diperbarui'], 200, ['Content-Type' => 'application/json']);
+            } else {
+                return $this->fail('Gagal memperbarui barang', 400, ['Content-Type' => 'application/json']);
+            }
+        } else {
+            return $this->fail('Invalid JSON input', 400, ['Content-Type' => 'application/json']);
+        }
     }
 
+    public function delete($id = null)
+    {
+        if ($this->barangModel->delete($id)) {
+            return $this->respondDeleted(['status' => 'success', 'message' => 'Barang berhasil dihapus'], 200, ['Content-Type' => 'application/json']);
+        } else {
+            return $this->fail('Gagal menghapus barang', 400, ['Content-Type' => 'application/json']);
+        }
+    }
 }
+
