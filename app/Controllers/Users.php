@@ -3,100 +3,106 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use CodeIgniter\RESTful\ResourceController;
 
-class Users extends BaseController
+class Users extends ResourceController
 {
+    protected $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+    
     public function index()
     {
+        $data_users = $this->userModel->findAll();
+        return $this->respond($data_users, 200, ['Content-Type' => 'application/json']);
     }
 
-    //Function sederhana untuk menampilkan data array dalam format JSON
-    public function showSimpleJson()
+    public function create()
     {
-        // Data array sederhana
-        $data = [
-        'id' => 1,
-        'nama' => 'amalia ardiyani',
-        'username' => 'amaliaard',
-        'password' => '12345',
-        'alamat' => 'ajibarang',
-        'no_hp' => '085219053802',
-        'role' => 'user',
+        $input_data = $this->request->getJSON(true);
+
+        if ($input_data) {
+            $data = [
+                'id' => $input_data['id'] ?? '',
+                'nama' => $input_data['nama'] ?? '',
+                'username' => $input_data['username'] ?? '',
+                'password' => $input_data['password'] ?? '',
+                'alamat' => $input_data['alamat'] ?? '',
+                'no_hp' => $input_data['no_hp'] ?? '',
+                'role' => $input_data['role'] ?? '',
+    
         ];
-       
-        // Mengambil response dalam format JSON
-        return $this->response->setJSON($data);
+        
+        if ($this->userModel->saveUsers($data)) {
+            return $this->respondCreated(
+                ['status' => 'success', 'message' => 'Users berhasil ditambahkan']
+            )->setContentType('application/json');
+        } else {
+            return $this->fail(
+                'Gagal menambah users', 
+                400
+            )->setContentType('application/json');
+        }
+    } else {
+        return $this->fail(
+            'Invalid JSON input', 
+            400
+        )->setContentType('application/json');
     }
+}
 
-    // method untuk menampilkan data admin dalam bentuk JSON
-    public function getUsers()
+public function show($id = null)
+{
+    $usermodel = new UsersModel();
+
+    $users = $usermodel->getUsersById($id);
+
+    return $this->response->setJSON($users);
+}
+
+public function getUsers()
     {
-        // Memanggil  model users
-        $usermodel = new UserModel();
+        $userModel = new UserModel(); // Corrected variable name to match conventions
 
-        // Mengambil data dari tabel tb_user
-        $users = $usermodel->getUsers();
+        $users = $userModel->getUsers(); // Changed to match the correct variable name
 
-        //Memanggil data dalam format JSON
         return $this->response->setJSON($users);
     }
 
-    // Function untuk menyimpan data dengan output JSON
-    public function storeData()
-    {
-        // Memanggil model UsersModel
-        $users = new UsersModel();
+public function update($id = null)
+{
+    $input_data = $this->request->getJSON(true);
 
-        // Mendapatkan data input dari request
+    if ($input_data) {
         $data = [
-            'id' => $this->request->getPost('id',),
-            'nama' => $this->request->getPost('nama',),
-            'username' => $this->request->getPost('username',),
-            'password' => $this->request->getPost('password',),
-            'alamat' => $this->request->getPost('alamat',),
-            'no_hp' => $this->request->getPost('no_hp',),
-            'role' => $this->request->getPost('role',)
-
+            'id' => $input_data['id'] ?? '',
+                'nama' => $input_data['nama'] ?? '',
+                'username' => $input_data['username'] ?? '',
+                'password' => $input_data['password'] ?? '',
+                'alamat' => $input_data['alamat'] ?? '',
+                'no_hp' => $input_data['no_hp'] ?? '',
+                'role' => $input_data['role'] ?? '',
         ];
 
-        if ($usersModel->saveUsers($data)) {
-            return $this->response->setJSON(['message' => 'Data berhasil disimpan', 'status' => 1]);
+        if ($this->userModel->update($id, $data)) {
+            return $this->respond(['status' => 'success', 'message' => 'Users berhasil diperbarui'], 200, ['Content-Type' => 'application/json']);
         } else {
-            return $this->response->setJSON(['message' => 'Gagal menyimpan data', 'status' => 0]);
+            return $this->fail('Gagal memperbarui users', 400, ['Content-Type' => 'application/json']);
         }
+    } else {
+        return $this->fail('Invalid JSON input', 400, ['Content-Type' => 'application/json']);
     }
-    
-    public function update($id)
-    {
-        $usersModel = new UsersModel();
-    
-        // Mendapatkan data input dari request
-        $data = [
-            'id' => $this->request->getPost('id',),
-            'nama' => $this->request->getPost('nama',),
-            'username' => $this->request->getPost('username',),
-            'password' => $this->request->getPost('password',),
-            'alamat' => $this->request->getPost('alamat',),
-            'no_hp' => $this->request->getPost('no_hp',),
-            'role' => $this->request->getPost('role',)
-        ];
-    
-        if ($usersModel->saveUsers($data)) {
-            return $this->response->setJSON(['message' => 'Data berhasil diperbarui', 'status' => 1]);
-        } else {
-            return $this->response->setJSON(['message' => 'Gagal memperbarui data', 'status' => 0]);
-        }
-    }
-    
-    public function delete($id)
-    {
-        $usersModel = new UsersModel();
-    
-        if ($usersModel->deleteUsers($id)) {
-            return $this->response->setJSON(['message' => 'Data berhasil dihapus', 'status' => 1]);
-        } else {
-            return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
-        }
-    }
-        
-    }
+}
+ 
+public function delete($id = null)
+{
+    if ($this->userModel->delete($id)) {
+        return $this->respondDeleted(['status' => 'success', 'message' => 'Users berhasil dihapus'], 200, ['Content-Type' => 'application/json']);
+    } else {
+        return $this->fail('Gagal menghapus users', 400, ['Content-Type' => 'application/json']);
+}
+}
+}

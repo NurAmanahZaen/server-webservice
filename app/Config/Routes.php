@@ -13,7 +13,7 @@ $routes->get('users/data', 'Users::getUsers'); // Route untuk mendapatkan data u
 $routes->post('users/store', 'Users::storeData'); // Route untuk menyimpan data users
 $routes->post('users/update/(:num)', 'Users::update/$1'); // Route untuk mengupdate data users berdasarkan id
 $routes->delete('users/delete/(:num)', 'Users::delete/$1'); // Route untuk menghapus data users berdasarkan id
-
+$routes->get('/users/data-users', 'Users::getUsersDataJson'); // Route untuk mendapatkan data Users dalam format JSON
 
 
 // Rute untuk DetailTransaksi
