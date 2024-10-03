@@ -1,22 +1,72 @@
+<<<<<<< HEAD
+CRITICAL - 2024-10-03 01:44:30 --> ErrorException: Undefined variable $barangModel
+[Method: GET, Route: barang/data]
+in APPPATH\Controllers\Barang.php on line 32.
+ 1 APPPATH\Controllers\Barang.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $barangModel', 'C:\\xampp\\htdocs\\server-webservice\\app\\Controllers\\Barang.php', 32)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Barang->getBarangDataJson()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Barang))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 01:45:39 --> Error: Class "App\Controllers\UsersData" not found
+[Method: GET, Route: users/data]
+in APPPATH\Controllers\Users.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->getUsersDataJson()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 01:56:07 --> Error: Class "App\Models\UserDetailTransaksi" not found
+[Method: GET, Route: detail-transaksi/data]
+in APPPATH\Controllers\DetailTransaksi.php on line 36.
+=======
 CRITICAL - 2024-10-03 01:20:28 --> Error: Class "App\Models\DetailTransaksi" not found
 [Method: GET, Route: detailtransaksi/data]
 in APPPATH\Controllers\DetailTransaksi.php on line 29.
+>>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
  1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
  2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 02:51:11 --> TypeError: CodeIgniter\RESTful\ResourceController::respond(): Argument #3 ($message) must be of type string, array given, called in C:\xampp\htdocs\server-webservice\app\Controllers\Pelanggan.php on line 19
+[Method: GET, Route: pelanggan/data]
+in SYSTEMPATH\API\ResponseTrait.php on line 92.
+ 1 APPPATH\Controllers\Pelanggan.php(19): CodeIgniter\RESTful\ResourceController->respond([...], 200, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pelanggan->index()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 03:01:52 --> Error: Class "App\Controllers\BarangModel" not found
+[Method: GET, Route: pelanggan/data]
+in APPPATH\Controllers\Pelanggan.php on line 61.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pelanggan->getPelanggan()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+=======
  7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
 CRITICAL - 2024-10-03 01:22:23 --> Error: Class "App\Models\DetailTransaksi" not found
 [Method: GET, Route: detailtransaksi/data]
 in APPPATH\Controllers\DetailTransaksi.php on line 30.
  1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DetailTransaksi->getDetailTransaksi()
  2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DetailTransaksi))
+>>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
  3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\server-webservice\\public\\index.php')
+=======
  7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
 CRITICAL - 2024-10-03 01:22:42 --> ErrorException: Undefined variable $detailtransaksiModel
 [Method: GET, Route: detailtransaksi/data]
@@ -159,6 +209,7 @@ in APPPATH\Controllers\DetailTransaksi.php on line 33.
  6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+<<<<<<< HEAD
 CRITICAL - 2024-10-03 02:37:44 --> Error: Class "App\Models\DetailTransaksiModels" not found
 [Method: GET, Route: detailtransaksi/data]
 in APPPATH\Controllers\DetailTransaksi.php on line 14.
@@ -589,3 +640,28 @@ in APPPATH\Controllers\DetailTransaksi.php on line 14.
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
+=======
+>>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
+CRITICAL - 2024-10-03 03:32:17 --> BadMethodCallException: Call to undefined method App\Models\TransaksiModel::deleteTransaksi
+[Method: GET, Route: transaksi/delete/1]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Transaksi.php(96): CodeIgniter\Model->__call('deleteTransaksi', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Transaksi->delete('1')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\web_Servise1\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 03:39:48 --> BadMethodCallException: Call to undefined method App\Models\PelangganModel::insertPelanggan
+[Method: POST, Route: pelanggan/store]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Pelanggan.php(33): CodeIgniter\Model->__call('insertPelanggan', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pelanggan->create()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\web_Servise1\\server-webservice\\public\\index.php')
+>>>>>>> 946d52f7323032dd22809c5553f234efbbc38d1a
