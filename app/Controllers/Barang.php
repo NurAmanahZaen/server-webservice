@@ -3,28 +3,62 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
-
-class Barang extends BaseController
+use CodeIgniter\RESTful\ResourceController;
+class Barang extends ResourceController
 {
-    public function index()
+    protected $barangModel;
+
+    public function __construct()
     {
-        // Optionally implement logic for the index method if needed
+        $this->barangModel = new BarangModel();
     }
 
-    public function showSimpleJson()
+    public function index()
     {
-        $data = [
-            'id' => 1, // Change to 1 instead of 01 for proper integer representation
-            'image' => 'pict',
-            'kd_barang' => 'B123',
-            'nama' => 'nisa',
-            'merek' => 'nixy',
-            'harga' => '89000',
-            'stok' => '15',
-            'kd_user' => 123456,
-        ];
+        $data_barang = $this->barangModel->findAll();
+        return $this->respond($data_barang, 200, ['Content-Type' => 'application/json']);
+    }
 
-        return $this->response->setJSON($data);
+    public function create()
+    {
+         $input_data = $this->request->getJSON(true);
+
+        if ($input_data) {
+            $data = [
+                'image'     => $input_data['image'] ?? 'no-image.png',
+                'kd_barang' => $input_data['kd_barang'] ?? '',
+                'nama'      => $input_data['nama'] ?? '',
+                'merek'     => $input_data['merek'] ?? '',
+                'kd_user'   => $input_data['kd_user'] ?? '',
+                'harga'     => $input_data['harga'] ?? '',
+                'stok'      => $input_data['stok'] ?? ''
+            ];
+
+        if ($this->barangModel->saveBarang($data)) {
+            return $this->respondCreated(
+             ['status' => 'success', 'message' => 'Barang berhasil ditambahkan']
+                )->setContentType('application/json');
+            } else {
+                return $this->fail(
+                    'Gagal menambah barang', 
+                    400
+                )->setContentType('application/json');
+            }
+        } else {
+            return $this->fail(
+                'Invalid JSON input', 
+                400
+            )->setContentType('application/json');
+        }
+    }
+    
+ public function show($id = null)
+    {
+        $barangmodel = new BarangModel();
+
+        $barang = $barangmodel->getBarangById($id);
+
+        return $this->response->setJSON($barang);
     }
 
     public function getBarang()
@@ -36,60 +70,38 @@ class Barang extends BaseController
         return $this->response->setJSON($barangs);
     }
 
-    // Function untuk menyimpan data dengan output JSON
-    public function storeData()
+    public function update($id = null)
     {
-        $barangModel = new BarangModel();
+        $input_data = $this->request->getJSON(true);
 
-        // Mendapatkan data input dari request
-        $data = [
-            'id' => $this->request->getPost('id'),
-            'image' => $this->request->getPost('image'),
-            'kd_barang' => $this->request->getPost('kd_barang'),
-            'nama' => $this->request->getPost('nama'),
-            'merek' => $this->request->getPost('merek'),
-            'harga' => $this->request->getPost('harga'),
-            'stok' => $this->request->getPost('stok'),
-            'kd_user' => $this->request->getPost('kd_user'),
-        ];
+        if ($input_data) {
+            $data = [
+                'image'     => $input_data['image'] ?? 'no-image.png',
+                'kd_barang' => $input_data['kd_barang'] ?? '',
+                'nama'      => $input_data['nama'] ?? '',
+                'merek'     => $input_data['merek'] ?? '',
+                'kd_user'   => $input_data['kd_user'] ?? '',
+                'harga'     => $input_data['harga'] ?? '',
+                'stok'      => $input_data['stok'] ?? ''
+            ];
 
-        if ($barangModel->saveBarang($data)) {
-            return $this->response->setJSON(['message' => 'Data berhasil disimpan', 'status' => 1]);
+            if ($this->barangModel->update($id, $data)) {
+                return $this->respond(['status' => 'success', 'message' => 'Barang berhasil diperbarui'], 200, ['Content-Type' => 'application/json']);
+            } else {
+                return $this->fail('Gagal memperbarui barang', 400, ['Content-Type' => 'application/json']);
+            }
         } else {
-            return $this->response->setJSON(['message' => 'Gagal menyimpan data', 'status' => 0]);
+            return $this->fail('Invalid JSON input', 400, ['Content-Type' => 'application/json']);
         }
     }
 
-    public function update($id)
+    public function delete($id = null)
     {
-        $barangModel = new BarangModel();
-
-        // Mendapatkan data input dari request
-        $data = [
-            'id' => $id, // Use the $id parameter to identify which item to update
-            'image' => $this->request->getPost('image'),
-            'kd_barang' => $this->request->getPost('kd_barang'),
-            'nama' => $this->request->getPost('nama'),
-            'merek' => $this->request->getPost('merek'),
-            'stok' => $this->request->getPost('stok'),
-            'kd_user' => $this->request->getPost('kd_user'),
-        ];
-
-        if ($barangModel->saveBarang($data)) {
-            return $this->response->setJSON(['message' => 'Data berhasil diperbarui', 'status' => 1]);
+        if ($this->barangModel->delete($id)) {
+            return $this->respondDeleted(['status' => 'success', 'message' => 'Barang berhasil dihapus'], 200, ['Content-Type' => 'application/json']);
         } else {
-            return $this->response->setJSON(['message' => 'Gagal memperbarui data', 'status' => 0]);
-        }
-    }
-
-    public function delete($id)
-    {
-        $barangModel = new BarangModel();
-
-        if ($barangModel->deleteBarang($id)) {
-            return $this->response->setJSON(['message' => 'Data berhasil dihapus', 'status' => 1]);
-        } else {
-            return $this->response->setJSON(['message' => 'Gagal menghapus data', 'status' => 0]);
+            return $this->fail('Gagal menghapus barang', 400, ['Content-Type' => 'application/json']);
         }
     }
 }
+
