@@ -23,11 +23,10 @@ class Pelanggan extends ResourceController
     {
         if ($input_data) {
         $data = [
-                'id' => $this->request->getPost('id'),
-                'nama' => $this->request->getPost('nama'),
-                'alamat' => $this->request->getPost('alamat'),
-                'username' => $this->request->getPost('username'),
-                'password' => $this->request->getPost('password')
+                'nama' => $input_data['nama'] ?? '',
+                'alamat' => $input_data['alamat'] ?? '',
+                'username' => $input_data['username'] ?? '',
+                'password' => $input_data['password'] ?? ''
                 ];
 
             if ($this->pelangganModel->insertPelanggan($data)) {
@@ -73,11 +72,10 @@ class Pelanggan extends ResourceController
 
         if ($input_data) {
             $data = [
-                'id' => $this->request->getPost('id'),
-                'nama' => $this->request->getPost('nama'),
-                'alamat' => $this->request->getPost('alamat'),
-                'username' => $this->request->getPost('username'),
-                'password' => $this->request->getPost('password')
+                'nama' => $input_data['nama'] ?? '',
+                'alamat' => $input_data['alamat'] ?? '',
+                'username' => $input_data['username'] ?? '',
+                'password' => $input_data['password'] ?? ''
             ];
 
             if ($this->pelangganModel->update($id, $data)) {
