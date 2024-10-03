@@ -16,7 +16,7 @@ class TransaksiModel extends Model
         'tgl_kembali', 
         'status', 
         'keterangan'
-    ]; 
+    ];
 
     // Jika ingin mengembalikan hasil sebagai array
     protected $returnType = 'array';
@@ -51,6 +51,42 @@ class TransaksiModel extends Model
             return $this->insert($data, true); 
         } catch (\Exception $e) {
             // Optional: Menangani jika ada error saat penyimpanan
+            return ['error' => $e->getMessage()];
+        }
+    }
+
+    // Method untuk memperbarui data transaksi berdasarkan id
+    public function updateTransaksi($id, $data)
+    {
+        try {
+            // Mengecek apakah ID ada dalam tabel
+            if ($this->find($id)) {
+                // Memperbarui data transaksi berdasarkan id
+                $this->update($id, $data);
+                return ['message' => 'Data berhasil diperbarui'];
+            } else {
+                return ['error' => 'ID tidak ditemukan'];
+            }
+        } catch (\Exception $e) {
+            // Optional: Menangani jika ada error saat memperbarui
+            return ['error' => $e->getMessage()];
+        }
+    }
+
+    // Method untuk menghapus data transaksi berdasarkan id
+    public function deleteTransaksi($id)
+    {
+        try {
+            // Mengecek apakah ID ada dalam tabel
+            if ($this->find($id)) {
+                // Menghapus data transaksi berdasarkan id
+                $this->delete($id);
+                return ['message' => 'Data berhasil dihapus'];
+            } else {
+                return ['error' => 'ID tidak ditemukan'];
+            }
+        } catch (\Exception $e) {
+            // Optional: Menangani jika ada error saat penghapusan
             return ['error' => $e->getMessage()];
         }
     }

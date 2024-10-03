@@ -21,6 +21,7 @@ class Pelanggan extends ResourceController
     
     public function create()
     {
+        $input_data = $this->request->getJSON(true);
         if ($input_data) {
         $data = [
                 'nama'      => $input_data['nama'] ?? '',
@@ -30,7 +31,7 @@ class Pelanggan extends ResourceController
                 'password'  => $input_data['password'] ?? ''
                 ];
 
-            if ($this->pelangganModel->insertPelanggan($data)) {
+            if ($this->pelangganModel->savePelanggan($data)) {
                 return $this->respondCreated(
                     ['status' => 'success', 'message' => 'Pelanggan berhasil ditambahkan']
                 )->setContentType('application/json');
