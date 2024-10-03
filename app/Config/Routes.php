@@ -33,6 +33,7 @@ $routes->get('pelanggan', 'Pelanggan::index'); // Route untuk menampilkan halama
 $routes->get('/pelanggan/json', 'Pelanggan::showSimpleJson'); // Route untuk menampilkan JSON sederhana dari Pelanggan
 $routes->get('pelanggan/data', 'Pelanggan::getPelanggan'); // Route untuk mendapatkan pelanggan dalam format JSON
 $routes->post('pelanggan/store', 'Pelanggan::storeData'); // Route untuk menyimpan data pelanggan
+$routes->post('pelanggan/show/(:num)', 'Pelanggan::show/$1'); 
 $routes->get('/pelanggan/data-pelanggan', 'Pelanggan::getPelangganDataJson'); // Route untuk mendapatkan data Pelanggan dalam format JSON
 $routes->post('pelanggan/update/(:num)', 'Pelanggan::update/$1'); // Route untuk mengupdate data berdasarkan id
 $routes->delete('pelanggan/delete/(:num)', 'Pelanggan::delete/$1');
