@@ -29,13 +29,13 @@ class Users extends BaseController
     }
 
     // method untuk menampilkan data admin dalam bentuk JSON
-    public function getUsersDataJson()
+    public function getUsers()
     {
         // Memanggil  model users
-        $usersmodel = new UsersData();
+        $usermodel = new UserModel();
 
         // Mengambil data dari tabel tb_user
-        $users = $usersmodel->getUsersData();
+        $users = $usermodel->getUsers();
 
         //Memanggil data dalam format JSON
         return $this->response->setJSON($users);
