@@ -210,3 +210,25 @@ in APPPATH\Controllers\DetailTransaksi.php on line 33.
  7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\server-webservice\\public\\index.php')
 >>>>>>> b9cef5ffa610f8542ca57408cc1671c58b5dab34
+CRITICAL - 2024-10-03 03:32:17 --> BadMethodCallException: Call to undefined method App\Models\TransaksiModel::deleteTransaksi
+[Method: GET, Route: transaksi/delete/1]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Transaksi.php(96): CodeIgniter\Model->__call('deleteTransaksi', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Transaksi->delete('1')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\web_Servise1\\server-webservice\\public\\index.php')
+CRITICAL - 2024-10-03 03:39:48 --> BadMethodCallException: Call to undefined method App\Models\PelangganModel::insertPelanggan
+[Method: POST, Route: pelanggan/store]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Pelanggan.php(33): CodeIgniter\Model->__call('insertPelanggan', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pelanggan->create()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\web_Servise1\\server-webservice\\public\\index.php')
